@@ -11,6 +11,7 @@ def home():
     return {
         "Message": "Welcome to the Python.org API Toolkit",
         "Endpoints": ["/py_latest_version", "/py_news_and_blogs", "/py_jobs"],
+        "": ["/feedback"],
         "Docs": "/docs"
     }
 
@@ -26,6 +27,6 @@ def read_py_news_and_blogs():
 def read_py_jobs():
     return get_py_jobs()
 
-@app.get("/feedback")
+@app.post("/feedback")
 def send_feedback(data: FeedBackdata):
     return feedback(data)

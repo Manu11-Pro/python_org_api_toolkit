@@ -5,6 +5,7 @@ class FeedBackdata(BaseModel):
     message: str
 
 def feedback(data: FeedBackdata):
-    print("\n status: succes")
-    print(f"\n Note: Thankyou for your Feedback {data.username}!")
-    print(f"\n Feedback recieved: {data.message}")
+    return {"Status": "succes",
+            "Note": f"Thankyou for your Feedback {data.username}!",
+            "Feedback recieved": f"{data.message}"
+    }
