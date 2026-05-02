@@ -1,14 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get("https://www.python.org/")
-status_code = response.status_code
-
-if status_code == 200:
-    print("\n Status Good for Fetching! \n")
-    print(f"\n {"-" * 30} \n")
-
-def get_py_news():
+def get_py_news_and_blogs():
     url = "https://www.python.org/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -38,16 +31,17 @@ def get_py_news():
                 "Link": link,
             })
 
-    return blogs[:5]
+    return blogs
 
-news_and_blog_data = get_py_news()
+if __name__ == "__main__":
+    news_and_blog_data = get_py_news_and_blogs()
 
-print(f"Latest Blogs and News: ")
-print("\n # Python News and Blogs # \n")
+    print(f"Latest Blogs and News: ")
+    print("\n # Python News and Blogs # \n")
 
-for blogs in news_and_blog_data:
-    print(f"TITLE : {blogs["News"]}")
-    print(f"DATE : {blogs["Date"]}")
-    print(f"LINK : {blogs["Link"]}")
+    for blogs in news_and_blog_data:
+        print(f"TITLE : {blogs["News"]}")
+        print(f"DATE : {blogs["Date"]}")
+        print(f"LINK : {blogs["Link"]}")
 
-print("\n --- End of News and Blogs Feed --- \n")
+    print("\n --- End of News and Blogs Feed --- \n")

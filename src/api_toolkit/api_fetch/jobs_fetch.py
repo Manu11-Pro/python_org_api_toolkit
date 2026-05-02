@@ -1,13 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get("https://www.python.org/jobs/")
-status_code = response.status_code
-
-if status_code == 200:
-    print("\n Status Good for Fetching! \n")
-    print(f"\n {"-" * 30} \n")
-
 def get_py_jobs():
     pyorg_url = "https://www.python.org/"
 
@@ -59,19 +52,20 @@ def get_py_jobs():
 
     return all_jobs
 
-all_jobs_data = get_py_jobs()
+if __name__ == "__main__":
+    all_jobs_data = get_py_jobs()
 
-print(f"Python Jobs: ")
-print("\n # Python Jobs # \n")
+    print(f"Python Jobs: ")
+    print("\n # Python Jobs # \n")
 
-for jobs in all_jobs_data:
-    print(f"JOB TITLE : {jobs["Job Title"]}")
-    print(f"COMPANY : {jobs["Job Company"]}")
-    print(f"JOB LINK : {jobs["Job Link"]}")
-    print(f"JOB LOCATION : {jobs["Job Location"]}")
-    print(f"JOB TYPE : {jobs["Job Type"]}")
-    print(f"JOB LISTING PUBLISH DATE : {jobs["Job Listing Publish Date"]}")
-    print(f"JOB CATEGORY : {jobs["Job Category"]}")
-    print("\n")
+    for jobs in all_jobs_data:
+        print(f"JOB TITLE : {jobs["Job Title"]}")
+        print(f"COMPANY : {jobs["Job Company"]}")
+        print(f"JOB LINK : {jobs["Job Link"]}")
+        print(f"JOB LOCATION : {jobs["Job Location"]}")
+        print(f"JOB TYPE : {jobs["Job Type"]}")
+        print(f"JOB LISTING PUBLISH DATE : {jobs["Job Listing Publish Date"]}")
+        print(f"JOB CATEGORY : {jobs["Job Category"]}")
+        print("\n")
 
-print("\n --- End of Python Jobs Feed --- \n")
+    print("\n --- End of Python Jobs Feed --- \n")
